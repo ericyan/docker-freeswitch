@@ -1,0 +1,13 @@
+<include>
+  <!-- NAT detection is disabled. Set public IP below if necessary. -->
+  <X-PRE-PROCESS cmd="set" data="external_sip_ip=$${local_ip_v4}"/>
+  <X-PRE-PROCESS cmd="set" data="external_rtp_ip=$${local_ip_v4}"/>
+
+  <!-- If you change ports, remember to update Dockerfile accordingly. -->
+  <X-PRE-PROCESS cmd="set" data="internal_sip_port=5060"/>
+  <X-PRE-PROCESS cmd="set" data="external_sip_port=5080"/>
+  <X-PRE-PROCESS cmd="set" data="rtp_start_port=64000"/>
+  <X-PRE-PROCESS cmd="set" data="rtp_end_port=65000"/>
+
+  <X-PRE-PROCESS cmd="set" data="global_codec_prefs=PCMU,PCMA"/>
+</include>
