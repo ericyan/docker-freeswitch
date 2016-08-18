@@ -23,13 +23,20 @@ $ docker run -d --net=host --name <contaner_name> ericyan/freeswitch
 We are using `--net=host` here, as mapping a large port range can eat a lot of
 memory (Docker issue [#11185](https://github.com/docker/docker/issues/11185)).
 
+You may override ports by setting environment variables with one or more `-e`
+flags. For example, adding flag `-e "INTERNAL_SIP_PORT=9060"` will change the
+SIP port of internal profile. Refer to `Dockerfile` for other options.
+
 ### Working with the container
 
 To access the FreeSWITCH CLI:
 
 ```
-$ docker exec -it <container_name> fs_cli
+$ docker exec -it <container_name> fs_cli -P <event_socket_port>
 ```
+
+If you have changed the event socket port, then you must specify the new port
+number using the `-P` flag.
 
 ## Security considerations
 
