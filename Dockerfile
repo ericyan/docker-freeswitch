@@ -40,6 +40,7 @@ RUN chown -R freeswitch:freeswitch /etc/freeswitch
 # Local and public IP address (defaults to autodectection)
 ENV LOCAL_IP_ADDR \$\${local_ip_v4}
 ENV PUBLIC_IP_ADDR \$\${local_ip_v4}
+ENV EVENT_SOCKET_IP_ADDR 127.0.0.1
 
 # Expose SIP and RTP ports
 ENV INTERNAL_SIP_PORT 5060

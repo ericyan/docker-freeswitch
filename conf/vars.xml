@@ -4,6 +4,7 @@
   <X-PRE-PROCESS cmd="set" data="internal_rtp_ip=$LOCAL_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="external_sip_ip=$PUBLIC_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="external_rtp_ip=$PUBLIC_IP_ADDR"/>
+  <X-PRE-PROCESS cmd="set" data="event_socket_ip=$EVENT_SOCKET_IP_ADDR"/>
 
   <!-- If you change ports, remember to update Dockerfile accordingly. -->
   <X-PRE-PROCESS cmd="set" data="internal_sip_port=$INTERNAL_SIP_PORT"/>
