@@ -37,6 +37,10 @@ RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF 
 COPY conf /etc/freeswitch/
 RUN chown -R freeswitch:freeswitch /etc/freeswitch
 
+# Local and public IP address (defaults to autodectection)
+ENV LOCAL_IP_ADDR \$\${local_ip_v4}
+ENV PUBLIC_IP_ADDR \$\${local_ip_v4}
+
 # Expose SIP and RTP ports
 ENV INTERNAL_SIP_PORT 5060
 ENV EXTERNAL_SIP_PORT 5080

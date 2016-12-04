@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+sed -i 's/$LOCAL_IP_ADDR/'$LOCAL_IP_ADDR'/g' /etc/freeswitch/vars.xml
+sed -i 's/$PUBLIC_IP_ADDR/'$PUBLIC_IP_ADDR'/g' /etc/freeswitch/vars.xml
 sed -i 's/$INTERNAL_SIP_PORT/'$INTERNAL_SIP_PORT'/g' /etc/freeswitch/vars.xml
 sed -i 's/$EXTERNAL_SIP_PORT/'$EXTERNAL_SIP_PORT'/g' /etc/freeswitch/vars.xml
 sed -i 's/$RTP_START_PORT/'$RTP_START_PORT'/g' /etc/freeswitch/vars.xml
