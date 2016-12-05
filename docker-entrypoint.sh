@@ -9,6 +9,7 @@ sed -i 's/$EXTERNAL_SIP_PORT/'$EXTERNAL_SIP_PORT'/g' /etc/freeswitch/vars.xml
 sed -i 's/$RTP_START_PORT/'$RTP_START_PORT'/g' /etc/freeswitch/vars.xml
 sed -i 's/$RTP_END_PORT/'$RTP_END_PORT'/g' /etc/freeswitch/vars.xml
 sed -i 's/$EVENT_SOCKET_PORT/'$EVENT_SOCKET_PORT'/g' /etc/freeswitch/vars.xml
+sed -i 's/$EVENT_SOCKET_ACL/'$EVENT_SOCKET_ACL'/g' /etc/freeswitch/vars.xml
 
 if [ "$1" = 'freeswitch' ]; then
   exec gosu freeswitch /usr/bin/freeswitch -u freeswitch -g freeswitch -c -nonat
