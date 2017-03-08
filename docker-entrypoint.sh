@@ -12,7 +12,7 @@ sed -i 's/$EVENT_SOCKET_PORT/'$EVENT_SOCKET_PORT'/g' /etc/freeswitch/vars.xml
 sed -i 's/$EVENT_SOCKET_ACL/'$EVENT_SOCKET_ACL'/g' /etc/freeswitch/vars.xml
 
 if [ "$1" = 'freeswitch' ]; then
-  exec gosu freeswitch /usr/bin/freeswitch -u freeswitch -g freeswitch -c -nonat
+  exec chroot --userspec=freeswitch / /usr/bin/freeswitch -u freeswitch -g freeswitch -c -nonat
 fi
 
 exec "$@"
