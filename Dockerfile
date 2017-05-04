@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 MAINTAINER Eric Yan "docker@ericyan.me"
 
 # Install FreeSWITCH
