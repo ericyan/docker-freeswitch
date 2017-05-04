@@ -1,11 +1,6 @@
 FROM debian:jessie
 MAINTAINER Eric Yan "docker@ericyan.me"
 
-# Set locale to "en_US.UTF-8"
-RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-ENV LANG en_US.utf8
-
 # Install FreeSWITCH
 ENV FREESWITCH_MAJOR 1.6
 RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF \
