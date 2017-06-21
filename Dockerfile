@@ -5,7 +5,9 @@ MAINTAINER Eric Yan "docker@ericyan.me"
 ENV FREESWITCH_MAJOR 1.6
 RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF \
     && echo "deb http://files.freeswitch.org/repo/deb/freeswitch-$FREESWITCH_MAJOR/ jessie main" > /etc/apt/sources.list.d/freeswitch.list \
-    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y freeswitch \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    gettext-base \
+    freeswitch \
     freeswitch-mod-commands \
     freeswitch-mod-event-socket \
     freeswitch-mod-sofia \
@@ -15,7 +17,6 @@ RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF 
 
 # Prepare configurations
 COPY conf /etc/freeswitch/
-RUN chown -R freeswitch:freeswitch /etc/freeswitch
 
 # Default settings
 ENV LOCAL_IP_ADDR=\$\${local_ip_v4} \

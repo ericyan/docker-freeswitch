@@ -1,15 +1,9 @@
 #!/bin/bash
 set -e
 
-sed -i 's/$LOCAL_IP_ADDR/'$LOCAL_IP_ADDR'/g' /etc/freeswitch/vars.xml
-sed -i 's/$PUBLIC_IP_ADDR/'$PUBLIC_IP_ADDR'/g' /etc/freeswitch/vars.xml
-sed -i 's/$EVENT_SOCKET_IP_ADDR/'$EVENT_SOCKET_IP_ADDR'/g' /etc/freeswitch/vars.xml
-sed -i 's/$INTERNAL_SIP_PORT/'$INTERNAL_SIP_PORT'/g' /etc/freeswitch/vars.xml
-sed -i 's/$EXTERNAL_SIP_PORT/'$EXTERNAL_SIP_PORT'/g' /etc/freeswitch/vars.xml
-sed -i 's/$RTP_START_PORT/'$RTP_START_PORT'/g' /etc/freeswitch/vars.xml
-sed -i 's/$RTP_END_PORT/'$RTP_END_PORT'/g' /etc/freeswitch/vars.xml
-sed -i 's/$EVENT_SOCKET_PORT/'$EVENT_SOCKET_PORT'/g' /etc/freeswitch/vars.xml
-sed -i 's/$EVENT_SOCKET_ACL/'$EVENT_SOCKET_ACL'/g' /etc/freeswitch/vars.xml
+mv /etc/freeswitch/vars.xml /tmp/vars.xml.tmpl
+envsubst < /tmp/vars.xml.tmpl > /etc/freeswitch/vars.xml
+chown -R freeswitch:freeswitch /etc/freeswitch
 
 if [ "$1" = 'freeswitch' ]; then
   setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/freeswitch
