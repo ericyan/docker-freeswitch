@@ -1,5 +1,5 @@
 FROM debian:jessie-slim
-MAINTAINER Eric Yan "docker@ericyan.me"
+LABEL maintainer "Eric Yan <docker@ericyan.me>"
 
 # Install FreeSWITCH
 ENV FREESWITCH_MAJOR 1.6
