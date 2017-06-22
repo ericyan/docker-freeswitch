@@ -4,8 +4,8 @@
     <param name="dump-cores" value="yes"/>
     <param name="colorize-console" value="false"/>
 
-    <param name="max-sessions" value="500"/>
-    <param name="sessions-per-second" value="30"/>
+    <param name="max-sessions" value="600"/>
+    <param name="sessions-per-second" value="300"/>
 
     <param name="rtp-start-port" value="$${rtp_start_port}"/>
     <param name="rtp-end-port" value="$${rtp_end_port}"/>
