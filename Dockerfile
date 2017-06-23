@@ -23,6 +23,7 @@ ENV LOCAL_IP_ADDR=\$\${local_ip_v4} \
     PUBLIC_IP_ADDR=\$\${local_ip_v4} \
     EVENT_SOCKET_IP_ADDR=127.0.0.1 \
     EVENT_SOCKET_ACL=loopback.auto \
+    EVENT_SOCKET_PASSWORD=ClueCon \
     INTERNAL_SIP_PORT=5060 \
     EXTERNAL_SIP_PORT=5080 \
     RTP_START_PORT=64000 \

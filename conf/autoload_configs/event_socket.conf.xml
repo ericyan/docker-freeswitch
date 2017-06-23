@@ -4,6 +4,6 @@
     <param name="listen-ip" value="$${event_socket_ip}"/>
     <param name="listen-port" value="$${event_socket_port}"/>
     <param name="apply-inbound-acl" value="$${event_socket_acl}"/>
-    <param name="password" value="ClueCon"/>
+    <param name="password" value="$${event_socket_password}"/>
   </settings>
 </configuration>

@@ -11,6 +11,7 @@
   <X-PRE-PROCESS cmd="set" data="event_socket_ip=$EVENT_SOCKET_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="event_socket_port=$EVENT_SOCKET_PORT"/>
   <X-PRE-PROCESS cmd="set" data="event_socket_acl=$EVENT_SOCKET_ACL"/>
+  <X-PRE-PROCESS cmd="set" data="event_socket_password=$EVENT_SOCKET_PASSWORD"/>
 
   <X-PRE-PROCESS cmd="set" data="global_codec_prefs=PCMU,PCMA"/>
 </include>
