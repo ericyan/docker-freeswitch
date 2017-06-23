@@ -17,11 +17,14 @@ $ docker build -t ericyan/freeswitch .
 ### Run FreeSWITCH in a container
 
 ```
-$ docker run -d --net=host --name <contaner_name> ericyan/freeswitch
+$ docker run -d --net=host --cap-add SYS_NICE --name <contaner_name> ericyan/freeswitch
 ```
 
 We are using `--net=host` here, as mapping a large port range can eat a lot of
 memory (Docker issue [#11185](https://github.com/docker/docker/issues/11185)).
+
+The `--cap-add SYS_NICE` is necessary to allow FreeSWITCH to adjust scheduling
+priority (issue [#5](https://github.com/ericyan/docker-freeswitch/issues/5)).
 
 You may override ports by setting environment variables with one or more `-e`
 flags. For example, adding flag `-e "INTERNAL_SIP_PORT=9060"` will change the
