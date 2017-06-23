@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
 
-mv /etc/freeswitch/vars.xml /tmp/vars.xml.tmpl
-envsubst < /tmp/vars.xml.tmpl > /etc/freeswitch/vars.xml
+for f in /etc/freeswitch/vars.xml.d/*.xml; do
+  mv $f /tmp/vars.xml.tmpl
+  envsubst < /tmp/vars.xml.tmpl > $f
+done
 chown -R freeswitch:freeswitch /etc/freeswitch
 
 if [ "$1" = 'freeswitch' ]; then

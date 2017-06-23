@@ -1,18 +1,16 @@
 <include>
-  <!-- NAT detection is disabled. Set public IP below if necessary. -->
   <X-PRE-PROCESS cmd="set" data="internal_sip_ip=$LOCAL_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="internal_rtp_ip=$LOCAL_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="external_sip_ip=$PUBLIC_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="external_rtp_ip=$PUBLIC_IP_ADDR"/>
-  <X-PRE-PROCESS cmd="set" data="event_socket_ip=$EVENT_SOCKET_IP_ADDR"/>
-  <X-PRE-PROCESS cmd="set" data="event_socket_acl=$EVENT_SOCKET_ACL"/>
-
-  <!-- If you change ports, remember to update Dockerfile accordingly. -->
   <X-PRE-PROCESS cmd="set" data="internal_sip_port=$INTERNAL_SIP_PORT"/>
   <X-PRE-PROCESS cmd="set" data="external_sip_port=$EXTERNAL_SIP_PORT"/>
   <X-PRE-PROCESS cmd="set" data="rtp_start_port=$RTP_START_PORT"/>
   <X-PRE-PROCESS cmd="set" data="rtp_end_port=$RTP_END_PORT"/>
+
+  <X-PRE-PROCESS cmd="set" data="event_socket_ip=$EVENT_SOCKET_IP_ADDR"/>
   <X-PRE-PROCESS cmd="set" data="event_socket_port=$EVENT_SOCKET_PORT"/>
+  <X-PRE-PROCESS cmd="set" data="event_socket_acl=$EVENT_SOCKET_ACL"/>
 
   <X-PRE-PROCESS cmd="set" data="global_codec_prefs=PCMU,PCMA"/>
 </include>

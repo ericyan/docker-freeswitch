@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
 <document type="freeswitch/xml">
-  <X-PRE-PROCESS cmd="include" data="vars.xml"/>
+  <X-PRE-PROCESS cmd="include" data="vars.xml.d/*.xml"/>
 
   <section name="configuration" description="Various Configuration">
+    <configuration name="modules.conf" description="Modules">
+      <modules>
+        <X-PRE-PROCESS cmd="include" data="modules/*.xml"/>
+      </modules>
+    </configuration>
+
     <X-PRE-PROCESS cmd="include" data="autoload_configs/*.xml"/>
   </section>
 

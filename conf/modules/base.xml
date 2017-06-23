@@ -1,0 +1,5 @@
+<load module="mod_commands"/>
+<load module="mod_event_socket"/>
+<load module="mod_sofia"/>
+<load module="mod_dialplan_xml"/>
+<load module="mod_dptools"/>
