@@ -2,8 +2,10 @@
 set -e
 
 for f in /etc/freeswitch/vars.xml.d/*.xml; do
-  mv $f /tmp/vars.xml.tmpl
-  envsubst < /tmp/vars.xml.tmpl > $f
+  if [ ! -f $f.tmpl ]; then
+    cp $f $f.tmpl
+  fi
+  envsubst < $f.tmpl > $f
 done
 chown -R freeswitch:freeswitch /etc/freeswitch
 
