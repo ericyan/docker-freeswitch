@@ -2,17 +2,18 @@ FROM debian:jessie-slim
 LABEL maintainer "Eric Yan <docker@ericyan.me>"
 
 # Install FreeSWITCH
-ENV FREESWITCH_MAJOR 1.6
+ENV FS_MAJOR=1.6
 RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF \
-    && echo "deb http://files.freeswitch.org/repo/deb/freeswitch-$FREESWITCH_MAJOR/ jessie main" > /etc/apt/sources.list.d/freeswitch.list \
+    && echo "deb http://files.freeswitch.org/repo/deb/freeswitch-$FS_MAJOR/ jessie main" \
+        > /etc/apt/sources.list.d/freeswitch.list \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    gettext-base \
-    freeswitch \
-    freeswitch-mod-commands \
-    freeswitch-mod-event-socket \
-    freeswitch-mod-sofia \
-    freeswitch-mod-dialplan-xml \
-    freeswitch-mod-dptools \
+        gettext-base \
+        freeswitch \
+        freeswitch-mod-commands \
+        freeswitch-mod-event-socket \
+        freeswitch-mod-sofia \
+        freeswitch-mod-dialplan-xml \
+        freeswitch-mod-dptools \
     && rm -rf /var/lib/apt/lists/*
 
 # Prepare configurations
@@ -31,8 +32,10 @@ ENV LOCAL_IP_ADDR=\$\${local_ip_v4} \
     EVENT_SOCKET_PORT=8021
 
 # Expose SIP and RTP ports
-EXPOSE $INTERNAL_SIP_PORT/tcp $INTERNAL_SIP_PORT/udp \
-       $EXTERNAL_SIP_PORT/tcp $EXTERNAL_SIP_PORT/udp \
+EXPOSE $INTERNAL_SIP_PORT/tcp \
+       $INTERNAL_SIP_PORT/udp \
+       $EXTERNAL_SIP_PORT/tcp \
+       $EXTERNAL_SIP_PORT/udp \
        $RTP_START_PORT-$RTP_END_PORT/udp
 
 # Set up entrypoint
