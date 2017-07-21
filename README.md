@@ -41,6 +41,16 @@ $ docker exec -it <container_name> fs_cli -P <event_socket_port>
 If you have changed the event socket port, then you must specify the new port
 number using the `-P` flag.
 
+## Modules
+
+This image comes with a limited set of preinstalled modules:
+
+ * mod_commands
+ * mod_event-socket
+ * mod_sofia
+ * mod_dialplan-xml
+ * mod_dptools
+
 ## Security considerations
 
 This image is designed to be deployed on a private network. By default, clients
