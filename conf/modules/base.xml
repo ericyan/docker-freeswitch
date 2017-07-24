@@ -3,3 +3,4 @@
 <load module="mod_sofia"/>
 <load module="mod_dialplan_xml"/>
 <load module="mod_dptools"/>
+<load module="mod_prometheus"/>
