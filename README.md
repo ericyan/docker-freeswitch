@@ -50,7 +50,6 @@ This image comes with a limited set of preinstalled modules:
  * mod_sofia
  * mod_dialplan-xml
  * mod_dptools
- * [mod_prometheus](https://github.com/ericyan/mod_prometheus)
 
 ## Security considerations
 

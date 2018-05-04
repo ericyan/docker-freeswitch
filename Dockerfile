@@ -1,10 +1,3 @@
-FROM ericyan/rust as builder
-
-ARG mod_prometheus_tag=master
-RUN curl -sSLf https://github.com/ericyan/mod_prometheus/archive/$mod_prometheus_tag.tar.gz \
-    | tar --strip-components=1 -zxf - \
-    && cargo build --release
-
 FROM debian:jessie-slim
 LABEL maintainer "Eric Yan <docker@ericyan.me>"
 
@@ -22,9 +15,6 @@ RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF 
         freeswitch-mod-dialplan-xml \
         freeswitch-mod-dptools \
     && rm -rf /var/lib/apt/lists/*
-
-# Add custom built modules
-COPY --from=builder /rust/target/release/libmod_prometheus.so /usr/lib/freeswitch/mod/mod_prometheus.so
 
 # Prepare configurations
 COPY conf /etc/freeswitch/
@@ -46,8 +36,7 @@ EXPOSE $INTERNAL_SIP_PORT/tcp \
        $INTERNAL_SIP_PORT/udp \
        $EXTERNAL_SIP_PORT/tcp \
        $EXTERNAL_SIP_PORT/udp \
-       $RTP_START_PORT-$RTP_END_PORT/udp \
-       9282/tcp
+       $RTP_START_PORT-$RTP_END_PORT/udp
 
 # Set up entrypoint
 COPY docker-entrypoint.sh /
