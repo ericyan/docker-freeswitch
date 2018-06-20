@@ -3,7 +3,7 @@ LABEL maintainer "Eric Yan <docker@ericyan.me>"
 
 # Install FreeSWITCH
 ENV FS_MAJOR=1.6
-RUN apt-key adv --keyserver pool.sks-keyservers.net --recv-key D76EDC7725E010CF \
+RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-key D76EDC7725E010CF \
     && echo "deb http://files.freeswitch.org/repo/deb/freeswitch-$FS_MAJOR/ jessie main" \
         > /etc/apt/sources.list.d/freeswitch.list \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
