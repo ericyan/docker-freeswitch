@@ -1,13 +1,16 @@
-FROM debian:jessie-slim
+FROM debian:buster-slim
 LABEL maintainer "Eric Yan <docker@ericyan.me>"
 
+# Install GnuPG
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y gnupg
+
 # Install FreeSWITCH
-ENV FS_MAJOR=1.6
-RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-key D76EDC7725E010CF \
-    && echo "deb http://files.freeswitch.org/repo/deb/freeswitch-$FS_MAJOR/ jessie main" \
+RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-key BD3189F5A2B57698 \
+    && echo "deb http://files.freeswitch.org/repo/deb/debian-release/ buster main" \
         > /etc/apt/sources.list.d/freeswitch.list \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
         gettext-base \
+        libcap2-bin \
         freeswitch \
         freeswitch-mod-commands \
         freeswitch-mod-event-socket \
