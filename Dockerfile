@@ -34,13 +34,6 @@ ENV LOCAL_IP_ADDR=\$\${local_ip_v4} \
     RTP_END_PORT=65000 \
     EVENT_SOCKET_PORT=8021
 
-# Expose SIP and RTP ports
-EXPOSE $INTERNAL_SIP_PORT/tcp \
-       $INTERNAL_SIP_PORT/udp \
-       $EXTERNAL_SIP_PORT/tcp \
-       $EXTERNAL_SIP_PORT/udp \
-       $RTP_START_PORT-$RTP_END_PORT/udp
-
 # Set up entrypoint
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
