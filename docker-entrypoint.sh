@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-for f in /etc/freeswitch/vars.xml.d/*.xml; do
+for f in /etc/freeswitch/vars/*.xml; do
   if [ ! -f $f.tmpl ]; then
     cp $f $f.tmpl
   fi

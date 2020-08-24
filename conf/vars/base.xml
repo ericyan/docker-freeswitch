@@ -1,0 +1,6 @@
+<include>
+  <X-PRE-PROCESS cmd="set" data="sip_port=$SIP_PORT"/>
+  <X-PRE-PROCESS cmd="set" data="rtp_start_port=$RTP_START_PORT"/>
+  <X-PRE-PROCESS cmd="set" data="rtp_end_port=$RTP_END_PORT"/>
+  <X-PRE-PROCESS cmd="set" data="event_socket_password=$EVENT_SOCKET_PASSWORD"/>
+</include>

@@ -23,16 +23,10 @@ RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-key BD3189F5A2B576
 COPY conf /etc/freeswitch/
 
 # Default settings
-ENV LOCAL_IP_ADDR=\$\${local_ip_v4} \
-    PUBLIC_IP_ADDR=\$\${local_ip_v4} \
-    EVENT_SOCKET_IP_ADDR=127.0.0.1 \
-    EVENT_SOCKET_ACL=loopback.auto \
-    EVENT_SOCKET_PASSWORD=ClueCon \
-    INTERNAL_SIP_PORT=5060 \
-    EXTERNAL_SIP_PORT=5080 \
-    RTP_START_PORT=64000 \
-    RTP_END_PORT=65000 \
-    EVENT_SOCKET_PORT=8021
+ENV SIP_PORT=5060 \
+    RTP_START_PORT=16384 \
+    RTP_END_PORT=32768 \
+    EVENT_SOCKET_PASSWORD=ClueCon
 
 # Set up entrypoint
 COPY docker-entrypoint.sh /
