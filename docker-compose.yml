@@ -1,0 +1,7 @@
+version: '3'
+services:
+  freeswitch:
+    image: ericyan/freeswitch:1.10
+    cap_add:
+      - SYS_NICE
+    network_mode: host
